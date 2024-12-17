@@ -1,22 +1,16 @@
-# Define variables
-CC = gcc
-CFLAGS = -I./src -Wall
-OBJECTS = src/main.o src/auth.o src/system.o
+objects = src/main.o src/system.o src/auth.o
 
-# Target to build the ATM executable
-atm_system: $(OBJECTS)
-	$(CC) -o atm_system $(OBJECTS)
+atm : $(objects)
+	cc -o atm $(objects)
 
-# Rules for building object files
-src/main.o: src/main.c src/header.h
-	$(CC) $(CFLAGS) -c src/main.c
+main.o : src/header.h
+kbd.o : src/header.h
+command.o : src/header.h
+display.o : src/header.h
+insert.o : src/header.h
+search.o : src/header.h
+files.o : src/header.h
+utils.o : src/header.h
 
-src/auth.o: src/auth.c src/header.h
-	$(CC) $(CFLAGS) -c src/auth.c
-
-src/system.o: src/system.c src/header.h
-	$(CC) $(CFLAGS) -c src/system.c
-
-# Clean up object files and executable
-clean:
-	rm -f $(OBJECTS) atm_system
+clean :
+	rm -f $(objects)
