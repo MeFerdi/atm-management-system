@@ -1,7 +1,7 @@
 #include <termios.h>
 #include "header.h"
 
-char *USERS = "./data/users.txt";
+char *USERS = "../data/users.txt";
 
 void loginMenu(char a[50], char pass[50])
 {
@@ -40,7 +40,7 @@ void login(struct User *u)
 
     if ((fp = fopen("./data/users.txt", "r")) == NULL)
     {
-        printf("Error! opening file");
+        printf("Error! opening file\n");
         exit(1);
     }
 
@@ -65,7 +65,7 @@ const char *getPassword(struct User u)
 
     if ((fp = fopen("./data/users.txt", "r")) == NULL)
     {
-        printf("Error! opening file");
+        printf("Error! opening file\n");
         exit(1);
     }
 
@@ -149,7 +149,7 @@ const int checkIfExists(char name[50])
 
     if ((fp = fopen("./data/users.txt", "r")) == NULL)
     {
-        printf("Error! opening file");
+        printf("Error! opening file\n");
         exit(1);
     }
 
@@ -171,7 +171,7 @@ void saveUserToFile(struct User *u)
 
     if ((fp = fopen("./data/users.txt", "r")) == NULL)
     {
-        printf("Error! opening file");
+        printf("Error! opening file\n");
         exit(1);
     }
 
@@ -191,7 +191,7 @@ void saveUserToFile(struct User *u)
 
     if ((fp = fopen("./data/users.txt", "a+")) == NULL)
     {
-        printf("Error! opening file");
+        printf("Error! opening file\n");
         exit(1);
     }
 
